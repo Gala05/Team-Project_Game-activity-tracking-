@@ -2,6 +2,7 @@ package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
@@ -42,6 +43,7 @@ public class PlayerTest {
 
         Player player = new Player("Petya");
         player.installGame(game);
+        player.installGame(game1);
         player.play(game, 3);
         player.play(game1, 2);
 
@@ -73,7 +75,7 @@ public class PlayerTest {
     public void shouldMostPlayerByGenreIfTwoGenre() {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        Game game1 = store.publishGame("Три в ряд", "Головомка");
+        Game game1 = store.publishGame("Три в ряд", "Головоломка");
 
         Player player = new Player("Petya");
         player.installGame(game);
