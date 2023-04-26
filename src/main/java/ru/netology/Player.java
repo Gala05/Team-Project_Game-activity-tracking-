@@ -70,4 +70,14 @@ public class Player {
         }
         return result;
     }
+
+    //метод подсчитывает сколько всего часов играл конкретный игрок
+    public int totalPlayingTimeByPlayer() {
+        int time = 0;
+        for (Game game : playedTime.keySet()) {
+            int i = playedTime.put(game, time);
+            return i;
+        }
+        return 0;
+    }
 }
