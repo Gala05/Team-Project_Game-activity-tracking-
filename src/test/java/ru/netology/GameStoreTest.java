@@ -15,6 +15,18 @@ public class GameStoreTest {
 
         assertTrue(store.containsGame(game));
     }
+
+    @Test
+    public void shouldAddGameNoGame() {
+        GameStore store1 = new GameStore();
+
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game1 = store1.publishGame("Баттл Онлайн", "стратегия");
+
+        boolean expected = false;
+        boolean actual = store.containsGame(game1);
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void shouldGetMostPlayerIfFirstWin() {
 
