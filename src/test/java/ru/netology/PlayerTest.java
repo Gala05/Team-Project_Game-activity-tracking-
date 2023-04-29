@@ -39,8 +39,12 @@ public class PlayerTest {
     public void shouldSumGenreIfNoGame() {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game1 = store.publishGame("Нетология Онлайн", "Головоломка");
 
         Player player = new Player("Petya");
+        player.installGame(game);
+        player.installGame(game1);
+        player.play(game1, 3);
 
         int expected = 0;
         int actual = player.sumGenre(game.getGenre());
