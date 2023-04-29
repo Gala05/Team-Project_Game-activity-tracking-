@@ -36,6 +36,18 @@ public class PlayerTest {
     }
 
     @Test
+    public void shouldSumGenreIfNoGame() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+
+        Player player = new Player("Petya");
+
+        int expected = 0;
+        int actual = player.sumGenre(game.getGenre());
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSumGenreIfFewSameGame() {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
@@ -108,6 +120,7 @@ public class PlayerTest {
 
         assertEquals(null, actual);
     }
+
     @Test
     public void shouldGetPlayerTimeIfOnePlayerOneGame() {
         Player player = new Player("Petya");
@@ -125,6 +138,7 @@ public class PlayerTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldGetPlayerTimeIfOnePlayerTwoGame() {
         Player player = new Player("Petya");
@@ -166,6 +180,7 @@ public class PlayerTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldGetPlayerTimeIfTwoPlayerTwoGame() {
         Player player1 = new Player("Petya");
